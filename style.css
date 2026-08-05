@@ -83,7 +83,7 @@ a {
     background-color: #557e98;
 
     background-image:
-        url("assets/background-haifa.jpg?v=15");
+        url("assets/background-haifa.jpg?v=16");
 
     background-repeat: no-repeat;
     background-size: auto 112%;
@@ -371,6 +371,7 @@ a {
 
 /* =========================================================
    ДОСКА И СОЦИАЛЬНЫЕ КНОПКИ
+   Картинка сохраняет естественные пропорции
    ========================================================= */
 
 .socials {
@@ -391,23 +392,19 @@ a {
     position: relative;
 
     width: 100%;
-    height: clamp(195px, 50vw, 240px);
 
     overflow: visible;
 }
 
 .social-board__background {
-    position: absolute;
+    position: relative;
 
     z-index: 1;
 
-    inset: 0;
-
     width: 100%;
-    height: 100%;
+    height: auto;
 
-    object-fit: fill;
-    object-position: center;
+    object-fit: contain;
 
     pointer-events: none;
     user-select: none;
@@ -423,10 +420,10 @@ a {
 
     z-index: 2;
 
-    inset:
-        7%
-        7%
-        8%;
+    top: 7%;
+    right: 7%;
+    bottom: 7%;
+    left: 7%;
 
     display: flex;
     flex-direction: column;
@@ -694,10 +691,6 @@ a {
         font-size: 7px;
     }
 
-    .social-board {
-        height: 190px;
-    }
-
     .social-board__title {
         margin-bottom: 11px;
         font-size: 19px;
@@ -723,10 +716,6 @@ a {
    ========================================================= */
 
 @media (min-width: 430px) {
-
-    .social-board {
-        height: 250px;
-    }
 
     .social-button {
         width: 60%;
@@ -792,15 +781,11 @@ a {
             30px;
     }
 
-    .social-board {
-        height: 310px;
-    }
-
     .social-board__content {
-        inset:
-            7%
-            8%
-            8%;
+        top: 7%;
+        right: 8%;
+        bottom: 7%;
+        left: 8%;
     }
 
     .social-board__title {
