@@ -1,6 +1,6 @@
 /* =========================================================
    ПЕРЕМЕННЫЕ
-   Mobile-first: основной диапазон 360–430 px
+   Основная версия: смартфоны шириной 360–430 px
    ========================================================= */
 
 :root {
@@ -9,8 +9,8 @@
     --black: #000000;
     --near-black: #030201;
 
-    --gold-light: #f1ce91;
-    --gold-main: #d69740;
+    --gold-light: #efc98a;
+    --gold-main: #d3903a;
     --gold-dark: #6a2e0b;
 
     --text-light: #f2e9dd;
@@ -28,6 +28,7 @@
 
 html {
     background: var(--black);
+    scroll-behavior: smooth;
 }
 
 body {
@@ -55,6 +56,7 @@ img {
 a {
     color: inherit;
     text-decoration: none;
+
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -72,26 +74,36 @@ a {
 
 /* =========================================================
    ПЕРВЫЙ ЭКРАН
-   Фон задаётся непосредственно секции.
-   Это надёжнее для длинных скриншотов страницы.
+   Фон Хайфы остаётся CSS-фоном и двигается при прокрутке
    ========================================================= */
 
 .hero {
+    --parallax-y: 0px;
+
     position: relative;
 
     width: 100%;
 
-    aspect-ratio: 1304 / 1152;
+    aspect-ratio: 1304 / 1135;
 
     overflow: hidden;
 
-    background-color: #44728e;
-    background-image: url("assets/background-haifa.jpg?v=7");
+    background-color: #557e98;
+
+    background-image:
+        url("assets/background-haifa.jpg?v=8");
+
     background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+
+    background-size: auto 112%;
+
+    background-position:
+        center
+        calc(50% + var(--parallax-y));
 
     isolation: isolate;
+
+    will-change: background-position;
 }
 
 .hero__composition {
@@ -110,28 +122,28 @@ a {
     object-position: center bottom;
 
     pointer-events: none;
+    user-select: none;
 }
 
 
 /* =========================================================
    БЛОК «ПОЧЕМУ МЫ»
-   Никаких коричневых пятен и радиальных градиентов
    ========================================================= */
 
 .benefits {
     position: relative;
 
     padding:
-        clamp(25px, 7vw, 42px)
+        clamp(22px, 5.8vw, 36px)
         4px
-        clamp(30px, 8vw, 48px);
+        clamp(25px, 6.5vw, 42px);
 
     background:
         linear-gradient(
             to bottom,
-            #090502 0%,
-            #030201 18%,
-            #000000 60%,
+            #070401 0%,
+            #020100 15%,
+            #000000 52%,
             #000000 100%
         );
 }
@@ -151,7 +163,7 @@ a {
         linear-gradient(
             to right,
             transparent,
-            rgba(213, 144, 55, 0.7),
+            rgba(213, 144, 55, 0.78),
             transparent
         );
 }
@@ -160,17 +172,20 @@ a {
     display: grid;
 
     grid-template-columns:
-        minmax(25px, 1fr)
+        minmax(22px, 1fr)
         auto
-        minmax(25px, 1fr);
+        minmax(22px, 1fr);
 
     align-items: center;
 
-    gap: 10px;
+    gap: 9px;
 
-    width: 86%;
+    width: 84%;
 
-    margin: 0 auto clamp(18px, 5vw, 30px);
+    margin:
+        0
+        auto
+        clamp(15px, 4vw, 25px);
 }
 
 .section-title {
@@ -184,7 +199,7 @@ a {
         Georgia,
         serif;
 
-    font-size: clamp(28px, 8.2vw, 48px);
+    font-size: clamp(26px, 7.5vw, 45px);
     font-weight: 400;
     line-height: 1;
 
@@ -192,6 +207,8 @@ a {
     text-transform: uppercase;
 
     white-space: nowrap;
+
+    letter-spacing: 0.2px;
 
     text-shadow:
         0 2px 0 var(--gold-dark),
@@ -233,6 +250,11 @@ a {
     transform: translateY(-50%);
 }
 
+
+/* =========================================================
+   ЧЕТЫРЕ ПРЕИМУЩЕСТВА В ОДИН РЯД
+   ========================================================= */
+
 .benefits__grid {
     display: grid;
 
@@ -256,7 +278,7 @@ a {
     padding:
         0
         3px
-        8px;
+        5px;
 
     text-align: center;
 }
@@ -266,7 +288,7 @@ a {
 
     position: absolute;
 
-    top: 2px;
+    top: 0;
     right: 0;
 
     width: 1px;
@@ -275,8 +297,8 @@ a {
     background:
         repeating-linear-gradient(
             to bottom,
-            rgba(213, 151, 69, 0.68) 0,
-            rgba(213, 151, 69, 0.68) 4px,
+            rgba(213, 151, 69, 0.7) 0,
+            rgba(213, 151, 69, 0.7) 4px,
             transparent 4px,
             transparent 9px
         );
@@ -288,26 +310,31 @@ a {
     justify-content: center;
 
     width: 100%;
-    height: clamp(75px, 21vw, 145px);
+    height: clamp(82px, 22.5vw, 150px);
 
-    margin-bottom: 7px;
+    margin-bottom: 4px;
 }
 
 .benefit-card__image {
-    width: clamp(70px, 19vw, 135px);
-    height: clamp(70px, 19vw, 135px);
+    width: clamp(78px, 21vw, 140px);
+    height: clamp(78px, 21vw, 140px);
 
     object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 5px 5px rgba(0, 0, 0, 0.6)
+        );
 }
 
 .benefit-card__image--chest {
-    width: clamp(80px, 22vw, 150px);
-    height: clamp(72px, 20vw, 138px);
+    width: clamp(88px, 23.5vw, 155px);
+    height: clamp(80px, 21.5vw, 142px);
 }
 
 .benefit-card__image--mask {
-    width: clamp(82px, 22vw, 155px);
-    height: clamp(62px, 17vw, 115px);
+    width: clamp(91px, 24vw, 160px);
+    height: clamp(69px, 18.5vw, 120px);
 }
 
 .benefit-card__title {
@@ -315,9 +342,12 @@ a {
     align-items: flex-start;
     justify-content: center;
 
-    min-height: 34px;
+    min-height: 31px;
 
-    margin: 0 0 6px;
+    margin:
+        0
+        0
+        5px;
 
     color: var(--gold-main);
 
@@ -327,9 +357,9 @@ a {
         Georgia,
         serif;
 
-    font-size: clamp(14px, 3.9vw, 28px);
+    font-size: clamp(13px, 3.7vw, 26px);
     font-weight: 400;
-    line-height: 0.95;
+    line-height: 0.94;
 
     text-transform: uppercase;
 
@@ -345,9 +375,9 @@ a {
 
     color: var(--text-muted);
 
-    font-size: clamp(8px, 2.45vw, 17px);
+    font-size: clamp(7.5px, 2.25vw, 16px);
     font-weight: 400;
-    line-height: 1.22;
+    line-height: 1.19;
 
     text-shadow:
         0 2px 4px rgba(0, 0, 0, 0.95);
@@ -356,20 +386,20 @@ a {
 
 /* =========================================================
    ДОСКА С СОЦИАЛЬНЫМИ СЕТЯМИ
-   Исходное соотношение сторон: 954 × 413
+   Исходные пропорции доски полностью сохраняются
    ========================================================= */
 
 .socials {
     padding:
-        2px
+        0
         5px
-        clamp(18px, 5vw, 32px);
+        clamp(13px, 3.5vw, 24px);
 
     background:
         linear-gradient(
             to bottom,
             #000000 0%,
-            #080301 100%
+            #070301 100%
         );
 }
 
@@ -397,6 +427,12 @@ a {
     object-position: center;
 
     pointer-events: none;
+    user-select: none;
+
+    filter:
+        drop-shadow(
+            0 10px 10px rgba(0, 0, 0, 0.55)
+        );
 }
 
 .social-board__content {
@@ -405,9 +441,9 @@ a {
     z-index: 2;
 
     inset:
-        17%
-        8%
-        15%;
+        15%
+        7%
+        13%;
 
     display: flex;
     flex-direction: column;
@@ -421,7 +457,7 @@ a {
     margin:
         0
         0
-        clamp(10px, 2.5vw, 25px);
+        clamp(7px, 2vw, 20px);
 
     color: var(--gold-light);
 
@@ -431,11 +467,13 @@ a {
         Georgia,
         serif;
 
-    font-size: clamp(25px, 7vw, 52px);
+    font-size: clamp(24px, 6.8vw, 49px);
     font-weight: 400;
     line-height: 1;
 
     text-transform: uppercase;
+
+    white-space: nowrap;
 
     text-shadow:
         0 2px 0 #642b0b,
@@ -452,7 +490,7 @@ a {
 
     width: 100%;
 
-    gap: clamp(7px, 2vw, 24px);
+    gap: clamp(6px, 1.8vw, 22px);
 }
 
 .social-button {
@@ -470,6 +508,11 @@ a {
 .social-button img {
     width: 100%;
     height: auto;
+
+    filter:
+        drop-shadow(
+            0 5px 5px rgba(0, 0, 0, 0.48)
+        );
 }
 
 .social-button:active {
@@ -496,30 +539,30 @@ a {
     gap: 10px;
 
     padding:
-        clamp(18px, 5vw, 32px)
+        clamp(16px, 4.2vw, 27px)
         10px
-        calc(clamp(20px, 5vw, 34px) + env(safe-area-inset-bottom));
+        calc(clamp(18px, 4.5vw, 30px) + env(safe-area-inset-bottom));
 
     background:
         radial-gradient(
             ellipse at center,
-            #77170c 0%,
-            #481007 45%,
-            #160301 100%
+            #7b190d 0%,
+            #4c1007 42%,
+            #190301 100%
         );
 
     border-top:
         1px solid rgba(210, 139, 51, 0.72);
 
     box-shadow:
-        inset 0 10px 18px rgba(0, 0, 0, 0.62),
-        inset 0 -14px 20px rgba(0, 0, 0, 0.6);
+        inset 0 9px 17px rgba(0, 0, 0, 0.62),
+        inset 0 -13px 19px rgba(0, 0, 0, 0.62);
 }
 
 .footer__text {
     margin: 0;
 
-    color: var(--gold-main);
+    color: #d99942;
 
     font-family:
         "Rye",
@@ -527,15 +570,19 @@ a {
         Georgia,
         serif;
 
-    font-size: clamp(22px, 6.2vw, 43px);
+    font-size: clamp(21px, 5.9vw, 41px);
     font-weight: 400;
-    line-height: 1.12;
+    line-height: 1.1;
 
     text-align: center;
 
+    letter-spacing: 0.3px;
+
     text-shadow:
-        0 2px 0 #541b05,
-        0 5px 10px rgba(0, 0, 0, 0.96);
+        0 1px 0 #f1c277,
+        0 3px 0 #642508,
+        0 6px 9px rgba(0, 0, 0, 0.95),
+        0 0 15px rgba(209, 74, 19, 0.42);
 }
 
 .footer__anchor {
@@ -564,21 +611,21 @@ a {
     }
 
     .benefit-card__title {
-        min-height: 30px;
+        min-height: 28px;
 
-        font-size: 12px;
+        font-size: 11.5px;
     }
 
     .benefit-card__text {
-        font-size: 7.5px;
+        font-size: 7px;
     }
 
     .social-board__title {
-        font-size: 23px;
+        font-size: 22px;
     }
 
     .footer__text {
-        font-size: 20px;
+        font-size: 19px;
     }
 
 }
@@ -586,57 +633,62 @@ a {
 
 /* =========================================================
    ПЛАНШЕТЫ И ДЕСКТОП
+   Вторичная адаптация
    ========================================================= */
 
 @media (min-width: 700px) {
 
+    .hero {
+        background-size: cover;
+    }
+
     .benefits {
         padding:
-            60px
+            55px
             38px
-            68px;
+            62px;
     }
 
     .benefits__heading {
-        margin-bottom: 34px;
+        margin-bottom: 30px;
     }
 
     .benefit-card {
         padding:
             0
             16px
-            20px;
+            17px;
     }
 
     .benefit-card__image-box {
-        height: 170px;
+        height: 165px;
 
-        margin-bottom: 12px;
+        margin-bottom: 9px;
     }
 
     .benefit-card__image,
     .benefit-card__image--chest,
     .benefit-card__image--mask {
-        width: 160px;
-        height: 160px;
+        width: 158px;
+        height: 158px;
     }
 
     .benefit-card__title {
         min-height: 0;
 
-        font-size: 27px;
+        font-size: 26px;
     }
 
     .benefit-card__text {
         font-size: 17px;
-        line-height: 1.35;
+        line-height: 1.32;
     }
 
     .socials {
         padding:
-            14px
+            10px
             38px
-            34px;
+            30px;
     }
 
     .social-button:hover {
@@ -649,6 +701,29 @@ a {
 
     .footer__anchor {
         display: inline-block;
+    }
+
+}
+
+
+/* =========================================================
+   ПОЛЬЗОВАТЕЛЬ ОТКЛЮЧИЛ АНИМАЦИИ
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .hero {
+        --parallax-y: 0px;
+
+        will-change: auto;
+    }
+
+    .social-button {
+        transition: none;
     }
 
 }
