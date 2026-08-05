@@ -1,0 +1,794 @@
+/* =========================================================
+   ОСНОВНЫЕ ПЕРЕМЕННЫЕ
+   Mobile-first: сначала смартфоны, потом большие экраны
+   ========================================================= */
+
+:root {
+    --page-max-width: 1024px;
+
+    --background-black: #000000;
+    --background-dark: #080301;
+    --background-brown: #1b0b04;
+
+    --gold-light: #f5d59b;
+    --gold-main: #d9a04c;
+    --gold-dark: #74400f;
+
+    --text-light: #f3e8d8;
+    --text-muted: #d4c5b3;
+
+    --mobile-side-padding: 16px;
+}
+
+
+/* =========================================================
+   СБРОС СТИЛЕЙ
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+
+    background: #000000;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #120904,
+            #000000
+        );
+
+    color: var(--text-light);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+img {
+    display: block;
+
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+
+    text-decoration: none;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.landing {
+    width: 100%;
+    max-width: var(--page-max-width);
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    background: var(--background-black);
+}
+
+.content-container {
+    width: 100%;
+    max-width: 920px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   ПЕРВЫЙ ЭКРАН
+   Основной расчёт под смартфон
+   ========================================================= */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+    min-height: 620px;
+
+    overflow: hidden;
+
+    background: #274764;
+}
+
+.hero__background {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: 58% center;
+
+    transform: scale(1.03);
+}
+
+.hero__darkening {
+    position: absolute;
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.03) 0%,
+            rgba(0, 0, 0, 0.02) 58%,
+            rgba(3, 1, 0, 0.28) 78%,
+            #040201 100%
+        );
+}
+
+.hero__composition {
+    position: absolute;
+
+    z-index: 3;
+
+    left: 50%;
+    bottom: -1px;
+
+    width: 124%;
+    max-width: none;
+    height: auto;
+
+    transform: translateX(-50%);
+
+    filter:
+        drop-shadow(
+            0 16px 14px rgba(0, 0, 0, 0.4)
+        );
+}
+
+
+/* =========================================================
+   ОБЩИЙ ЗАГОЛОВОК
+   ========================================================= */
+
+.section-title {
+    margin: 0 0 30px;
+
+    color: var(--gold-light);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(34px, 10vw, 48px);
+    font-weight: 700;
+    line-height: 1;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 2px 0 #5a270a,
+        0 5px 10px rgba(0, 0, 0, 0.95);
+}
+
+
+/* =========================================================
+   ПРЕИМУЩЕСТВА
+   На смартфоне карточки идут вертикально
+   ========================================================= */
+
+.benefits {
+    position: relative;
+
+    padding:
+        52px
+        var(--mobile-side-padding)
+        58px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(118, 61, 20, 0.28),
+            transparent 35%
+        ),
+        linear-gradient(
+            to bottom,
+            #060301 0%,
+            #010100 65%,
+            #000000 100%
+        );
+}
+
+.benefits::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 10%;
+    right: 10%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(216, 151, 67, 0.7),
+            transparent
+        );
+}
+
+.benefits__list {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 0;
+}
+
+.benefit-card {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(108px, 34%)
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    min-height: 150px;
+
+    padding:
+        22px
+        4px
+        24px;
+
+    border-bottom:
+        1px solid rgba(195, 128, 48, 0.24);
+}
+
+.benefit-card:last-child {
+    border-bottom: none;
+}
+
+.benefit-card__image-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+}
+
+.benefit-card__image {
+    width: 118px;
+    height: 118px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 10px 8px rgba(0, 0, 0, 0.82)
+        );
+}
+
+.benefit-card__content {
+    min-width: 0;
+
+    padding-left: 12px;
+}
+
+.benefit-card__title {
+    margin: 0 0 8px;
+
+    color: var(--gold-main);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(22px, 6.5vw, 28px);
+    font-weight: 700;
+    line-height: 1.05;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 2px 0 #3b1605,
+        0 4px 7px rgba(0, 0, 0, 0.9);
+}
+
+.benefit-card__text {
+    margin: 0;
+
+    color: var(--text-muted);
+
+    font-size: clamp(15px, 4.3vw, 18px);
+    line-height: 1.35;
+
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+
+/* =========================================================
+   СОЦИАЛЬНЫЕ СЕТИ
+   Доска и кнопки рассчитаны прежде всего на телефон
+   ========================================================= */
+
+.socials {
+    position: relative;
+
+    padding:
+        10px
+        4px
+        24px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #000000,
+            #080301
+        );
+}
+
+.social-board {
+    position: relative;
+
+    width: 100%;
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-board__background {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: fill;
+
+    filter:
+        drop-shadow(
+            0 14px 12px rgba(0, 0, 0, 0.8)
+        );
+}
+
+.social-board__content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 69%;
+
+    padding-top: 28px;
+
+    text-align: center;
+}
+
+.social-board__title {
+    margin: 0 0 24px;
+
+    color: var(--gold-light);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(29px, 8.5vw, 38px);
+    font-weight: 700;
+    line-height: 1.05;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 2px 0 #53250b,
+        0 5px 8px rgba(0, 0, 0, 0.85);
+}
+
+.social-board__buttons {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+}
+
+.social-button {
+    display: block;
+
+    width: 100%;
+
+    border-radius: 10px;
+
+    transition:
+        transform 150ms ease,
+        filter 150ms ease;
+}
+
+.social-button img {
+    width: 100%;
+    height: auto;
+
+    filter:
+        drop-shadow(
+            0 8px 7px rgba(0, 0, 0, 0.58)
+        );
+}
+
+.social-button:active {
+    transform: scale(0.97);
+
+    filter: brightness(1.08);
+}
+
+.social-button:focus-visible {
+    outline: 3px solid var(--gold-light);
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   ПОДВАЛ
+   ========================================================= */
+
+.footer {
+    padding:
+        25px
+        18px
+        calc(30px + env(safe-area-inset-bottom));
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #72160b 0%,
+            #3c0a05 50%,
+            #130201 100%
+        );
+
+    border-top:
+        1px solid rgba(197, 130, 46, 0.7);
+
+    box-shadow:
+        inset 0 9px 18px rgba(0, 0, 0, 0.62),
+        inset 0 -12px 20px rgba(0, 0, 0, 0.55);
+}
+
+.footer__text {
+    margin: 0;
+
+    color: var(--gold-main);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(27px, 8vw, 38px);
+    font-weight: 700;
+    line-height: 1.08;
+
+    text-align: center;
+
+    text-shadow:
+        0 2px 0 #431204,
+        0 5px 9px rgba(0, 0, 0, 0.92);
+}
+
+
+/* =========================================================
+   АНИМАЦИЯ ПОЯВЛЕНИЯ
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(18px);
+
+    transition:
+        opacity 550ms ease,
+        transform 550ms ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   ОЧЕНЬ УЗКИЕ ЭКРАНЫ
+   Например 320–350 px
+   ========================================================= */
+
+@media (max-width: 350px) {
+
+    .hero {
+        min-height: 570px;
+    }
+
+    .hero__composition {
+        width: 128%;
+    }
+
+    .benefit-card {
+        grid-template-columns:
+            100px
+            minmax(0, 1fr);
+    }
+
+    .benefit-card__image {
+        width: 104px;
+        height: 104px;
+    }
+
+    .benefit-card__content {
+        padding-left: 8px;
+    }
+
+    .social-board {
+        min-height: 455px;
+    }
+
+    .social-board__content {
+        width: 68%;
+    }
+
+    .social-board__title {
+        margin-bottom: 18px;
+    }
+
+    .social-board__buttons {
+        gap: 11px;
+    }
+
+}
+
+
+/* =========================================================
+   БОЛЬШИЕ СМАРТФОНЫ И МАЛЕНЬКИЕ ПЛАНШЕТЫ
+   ========================================================= */
+
+@media (min-width: 430px) {
+
+    .hero {
+        min-height: 700px;
+    }
+
+    .hero__composition {
+        width: 118%;
+    }
+
+    .benefits {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .benefit-card {
+        min-height: 165px;
+
+        grid-template-columns:
+            145px
+            minmax(0, 1fr);
+    }
+
+    .benefit-card__image {
+        width: 135px;
+        height: 135px;
+    }
+
+    .social-board {
+        min-height: 560px;
+    }
+
+    .social-board__content {
+        width: 68%;
+    }
+
+}
+
+
+/* =========================================================
+   ПЛАНШЕТЫ И ДЕСКТОП
+   Вторичный режим
+   ========================================================= */
+
+@media (min-width: 700px) {
+
+    .hero {
+        min-height: auto;
+
+        aspect-ratio: 1024 / 900;
+    }
+
+    .hero__background {
+        object-position: center center;
+    }
+
+    .hero__composition {
+        width: 100%;
+    }
+
+    .benefits {
+        padding:
+            72px
+            34px
+            78px;
+    }
+
+    .section-title {
+        margin-bottom: 46px;
+    }
+
+    .benefits__list {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 28px 20px;
+    }
+
+    .benefit-card {
+        display: block;
+
+        min-height: auto;
+
+        padding:
+            12px
+            18px
+            26px;
+
+        border-bottom: none;
+
+        text-align: center;
+    }
+
+    .benefit-card__image {
+        width: 165px;
+        height: 165px;
+    }
+
+    .benefit-card__content {
+        padding-left: 0;
+    }
+
+    .benefit-card__title {
+        margin-top: 12px;
+    }
+
+    .socials {
+        padding:
+            18px
+            34px
+            35px;
+    }
+
+    .social-board {
+        min-height: auto;
+
+        aspect-ratio: 954 / 413;
+    }
+
+    .social-board__content {
+        width: 82%;
+
+        padding-top: 3%;
+    }
+
+    .social-board__buttons {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 24px;
+    }
+
+    .social-board__title {
+        margin-bottom: 24px;
+    }
+
+    .social-button:hover {
+        transform:
+            translateY(-4px)
+            scale(1.01);
+
+        filter: brightness(1.08);
+    }
+
+    .footer__text br {
+        display: none;
+    }
+
+}
+
+
+/* =========================================================
+   БОЛЬШИЕ ЭКРАНЫ
+   ========================================================= */
+
+@media (min-width: 900px) {
+
+    .benefits__list {
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+
+        gap: 0;
+    }
+
+    .benefit-card {
+        position: relative;
+    }
+
+    .benefit-card:not(:last-child)::after {
+        content: "";
+
+        position: absolute;
+
+        top: 12%;
+        right: 0;
+
+        width: 1px;
+        height: 76%;
+
+        background:
+            linear-gradient(
+                to bottom,
+                transparent,
+                rgba(191, 121, 43, 0.65),
+                transparent
+            );
+    }
+
+}
+
+
+/* =========================================================
+   ОТКЛЮЧЕНИЕ АНИМАЦИЙ
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .reveal {
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+    }
+
+    .social-button {
+        transition: none;
+    }
+
+}
