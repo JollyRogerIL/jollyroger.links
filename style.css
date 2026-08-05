@@ -83,7 +83,7 @@ a {
     background-color: #557e98;
 
     background-image:
-        url("assets/background-haifa.jpg?v=17");
+        url("assets/background-haifa.jpg?v=18");
 
     background-repeat: no-repeat;
     background-size: auto 112%;
@@ -599,74 +599,129 @@ a {
 
 
 /* =========================================================
-   НИЖНИЙ СЛОГАН
-   Такой же шрифт и стиль, как у «ПОЧЕМУ МЫ?»
+   НИЖНИЙ БЛОК
    ========================================================= */
 
 .footer {
+    position: relative;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
-    gap: 10px;
+    width: 100%;
 
     padding:
-        clamp(16px, 4.2vw, 27px)
-        10px
-        calc(clamp(18px, 4.5vw, 30px) + env(safe-area-inset-bottom));
+        clamp(25px, 6.5vw, 42px)
+        8px
+        calc(clamp(27px, 7vw, 45px) + env(safe-area-inset-bottom));
+
+    background: #000000;
+}
+
+.footer::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 6%;
+    right: 6%;
+
+    height: 1px;
 
     background:
-        radial-gradient(
-            ellipse at center,
-            #7b190d 0%,
-            #4c1007 42%,
-            #190301 100%
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(213, 144, 55, 0.78),
+            transparent
         );
+}
 
-    border-top:
-        1px solid rgba(210, 139, 51, 0.72);
+.footer__heading {
+    display: grid;
 
-    box-shadow:
-        inset 0 9px 17px rgba(0, 0, 0, 0.62),
-        inset 0 -13px 19px rgba(0, 0, 0, 0.62);
+    grid-template-columns:
+        minmax(25px, 1fr)
+        minmax(0, auto)
+        minmax(25px, 1fr);
+
+    align-items: center;
+
+    gap: clamp(7px, 2vw, 13px);
+
+    width: 94%;
+
+    margin: 0 auto;
 }
 
 .footer__text {
     margin: 0;
 
-    color: var(--gold-light);
+    color: var(--gold-main);
 
     font-family:
-        "Rye",
         "Pirata One",
+        "Rye",
         Georgia,
         serif;
 
-    font-size: clamp(26px, 7.5vw, 45px);
+    /*
+     * Примерно на 20% крупнее заголовков карточек.
+     */
+    font-size: clamp(14.4px, 4.02vw, 27.6px);
     font-weight: 400;
-    line-height: 1;
+    line-height: 1.08;
 
     text-align: center;
+    text-transform: uppercase;
 
-    letter-spacing: 0.2px;
+    letter-spacing: 0.15px;
 
     text-shadow:
-        0 2px 0 var(--gold-dark),
-        0 4px 0 #311104,
-        0 7px 12px rgba(0, 0, 0, 0.92);
+        0 1px 0 #5c2508,
+        0 3px 5px rgba(0, 0, 0, 0.96);
 }
 
-.footer__anchor {
-    display: none;
+.footer__text span {
+    display: block;
 
-    color: var(--gold-light);
+    white-space: nowrap;
+}
 
-    font-size: 30px;
+.footer__ornament {
+    position: relative;
 
-    text-shadow:
-        0 2px 0 var(--gold-dark),
-        0 4px 0 #311104,
-        0 7px 12px rgba(0, 0, 0, 0.92);
+    display: block;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            var(--gold-main)
+        );
+}
+
+.footer__ornament--right {
+    transform: scaleX(-1);
+}
+
+.footer__ornament::after {
+    content: "◆";
+
+    position: absolute;
+
+    top: 50%;
+    right: -2px;
+
+    color: var(--gold-main);
+
+    font-size: 8px;
+
+    transform: translateY(-50%);
 }
 
 
@@ -708,9 +763,17 @@ a {
         width: 64%;
     }
 
+    .footer__heading {
+        width: 97%;
+        gap: 5px;
+    }
+
     .footer__text {
-        font-size: 22px;
-        line-height: 1.12;
+        font-size: 12.5px;
+    }
+
+    .footer__ornament::after {
+        font-size: 7px;
     }
 
 }
@@ -809,8 +872,13 @@ a {
         filter: brightness(1.08);
     }
 
-    .footer__anchor {
-        display: inline-block;
+    .footer__heading {
+        width: 82%;
+        gap: 16px;
+    }
+
+    .footer__text {
+        font-size: 28px;
     }
 
 }
