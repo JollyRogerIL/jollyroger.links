@@ -83,7 +83,7 @@ a {
     background-color: #557e98;
 
     background-image:
-        url("assets/background-haifa.jpg?v=13");
+        url("assets/background-haifa.jpg?v=14");
 
     background-repeat: no-repeat;
     background-size: auto 112%;
@@ -394,9 +394,9 @@ a {
     width: 100%;
 
     /*
-     * Высота доски уменьшена с 70vw до 55vw.
+     * Высота доски уменьшена с 55vw до 50vw.
      */
-    height: clamp(215px, 55vw, 265px);
+    height: clamp(195px, 50vw, 240px);
 
     overflow: visible;
 }
@@ -697,7 +697,7 @@ a {
     }
 
     .social-board {
-        height: 205px;
+        height: 190px;
     }
 
     .social-board__title {
@@ -727,7 +727,7 @@ a {
 @media (min-width: 430px) {
 
     .social-board {
-        height: 275px;
+        height: 250px;
     }
 
     .social-button {
@@ -795,7 +795,7 @@ a {
     }
 
     .social-board {
-        height: 340px;
+        height: 310px;
     }
 
     .social-board__content {
