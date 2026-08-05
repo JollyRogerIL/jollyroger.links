@@ -1,18 +1,19 @@
 /* =========================================================
    ПЕРЕМЕННЫЕ
+   Mobile-first: основной диапазон 360–430 px
    ========================================================= */
 
 :root {
     --page-max-width: 1024px;
 
     --black: #000000;
-    --dark-brown: #090401;
+    --near-black: #030201;
 
-    --gold-light: #f2cf94;
-    --gold-main: #d6943e;
-    --gold-dark: #6b2e0b;
+    --gold-light: #f1ce91;
+    --gold-main: #d69740;
+    --gold-dark: #6a2e0b;
 
-    --text-light: #f1e8dd;
+    --text-light: #f2e9dd;
     --text-muted: #ddd3c6;
 }
 
@@ -26,15 +27,14 @@
 }
 
 html {
-    scroll-behavior: smooth;
-    background: #000000;
+    background: var(--black);
 }
 
 body {
     margin: 0;
     min-width: 320px;
 
-    background: #000000;
+    background: var(--black);
 
     color: var(--text-light);
 
@@ -66,121 +66,72 @@ a {
 
     overflow: hidden;
 
-    background: #000000;
+    background: var(--black);
 }
 
 
 /* =========================================================
    ПЕРВЫЙ ЭКРАН
+   Фон задаётся непосредственно секции.
+   Это надёжнее для длинных скриншотов страницы.
    ========================================================= */
 
 .hero {
     position: relative;
 
     width: 100%;
-    height: clamp(600px, 165vw, 710px);
+
+    aspect-ratio: 1304 / 1152;
 
     overflow: hidden;
 
-    background: #264a6b;
-}
+    background-color: #44728e;
+    background-image: url("assets/background-haifa.jpg?v=7");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 
-.hero__background {
-    position: absolute;
-    inset: 0;
-
-    z-index: 1;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    object-position: 66% center;
-
-    transform: scale(1.02);
-}
-
-.hero__light {
-    position: absolute;
-    inset: 0;
-
-    z-index: 2;
-
-    pointer-events: none;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(255, 213, 145, 0.04) 0%,
-            rgba(0, 0, 0, 0) 55%,
-            rgba(0, 0, 0, 0.08) 72%,
-            rgba(0, 0, 0, 0.48) 100%
-        );
+    isolation: isolate;
 }
 
 .hero__composition {
     position: absolute;
 
-    z-index: 3;
-
-    left: 50%;
-    bottom: -1px;
-
-    width: 116%;
-    max-width: none;
-    height: auto;
-
-    transform: translateX(-50%);
-
-    filter:
-        drop-shadow(0 14px 14px rgba(0, 0, 0, 0.42));
-}
-
-.hero__bottom-shadow {
-    position: absolute;
-
-    z-index: 4;
+    z-index: 1;
 
     left: 0;
     right: 0;
     bottom: 0;
 
-    height: 42px;
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center bottom;
 
     pointer-events: none;
-
-    background:
-        linear-gradient(
-            to bottom,
-            transparent,
-            rgba(0, 0, 0, 0.9)
-        );
 }
 
 
 /* =========================================================
    БЛОК «ПОЧЕМУ МЫ»
-   Четыре колонки в одну линию, как в референсе
+   Никаких коричневых пятен и радиальных градиентов
    ========================================================= */
 
 .benefits {
     position: relative;
 
     padding:
-        35px
+        clamp(25px, 7vw, 42px)
         4px
-        42px;
+        clamp(30px, 8vw, 48px);
 
     background:
-        radial-gradient(
-            ellipse at 50% 0%,
-            rgba(96, 42, 12, 0.26),
-            transparent 35%
-        ),
         linear-gradient(
             to bottom,
-            #080301 0%,
-            #020100 34%,
+            #090502 0%,
+            #030201 18%,
+            #000000 60%,
             #000000 100%
         );
 }
@@ -200,31 +151,26 @@ a {
         linear-gradient(
             to right,
             transparent,
-            rgba(213, 144, 55, 0.62),
+            rgba(213, 144, 55, 0.7),
             transparent
         );
-}
-
-.benefits__inner {
-    width: 100%;
-    margin: 0 auto;
 }
 
 .benefits__heading {
     display: grid;
 
     grid-template-columns:
-        minmax(20px, 1fr)
+        minmax(25px, 1fr)
         auto
-        minmax(20px, 1fr);
+        minmax(25px, 1fr);
 
     align-items: center;
 
     gap: 10px;
 
-    width: 82%;
+    width: 86%;
 
-    margin: 0 auto 25px;
+    margin: 0 auto clamp(18px, 5vw, 30px);
 }
 
 .section-title {
@@ -238,7 +184,7 @@ a {
         Georgia,
         serif;
 
-    font-size: clamp(29px, 8vw, 48px);
+    font-size: clamp(28px, 8.2vw, 48px);
     font-weight: 400;
     line-height: 1;
 
@@ -248,8 +194,8 @@ a {
     white-space: nowrap;
 
     text-shadow:
-        0 2px 0 #6d310d,
-        0 4px 0 #321204,
+        0 2px 0 var(--gold-dark),
+        0 4px 0 #311104,
         0 7px 12px rgba(0, 0, 0, 0.92);
 }
 
@@ -282,7 +228,7 @@ a {
 
     color: var(--gold-main);
 
-    font-size: 9px;
+    font-size: 8px;
 
     transform: translateY(-50%);
 }
@@ -309,7 +255,7 @@ a {
 
     padding:
         0
-        4px
+        3px
         8px;
 
     text-align: center;
@@ -320,7 +266,7 @@ a {
 
     position: absolute;
 
-    top: 3px;
+    top: 2px;
     right: 0;
 
     width: 1px;
@@ -329,8 +275,8 @@ a {
     background:
         repeating-linear-gradient(
             to bottom,
-            rgba(213, 151, 69, 0.62) 0,
-            rgba(213, 151, 69, 0.62) 4px,
+            rgba(213, 151, 69, 0.68) 0,
+            rgba(213, 151, 69, 0.68) 4px,
             transparent 4px,
             transparent 9px
         );
@@ -342,33 +288,36 @@ a {
     justify-content: center;
 
     width: 100%;
-    height: clamp(76px, 22vw, 145px);
+    height: clamp(75px, 21vw, 145px);
 
     margin-bottom: 7px;
 }
 
 .benefit-card__image {
-    width: clamp(73px, 20vw, 135px);
-    height: clamp(73px, 20vw, 135px);
+    width: clamp(70px, 19vw, 135px);
+    height: clamp(70px, 19vw, 135px);
 
     object-fit: contain;
-
-    filter:
-        drop-shadow(0 7px 6px rgba(0, 0, 0, 0.88));
 }
 
 .benefit-card__image--chest {
-    width: clamp(83px, 23vw, 150px);
-    height: clamp(76px, 21vw, 138px);
+    width: clamp(80px, 22vw, 150px);
+    height: clamp(72px, 20vw, 138px);
 }
 
 .benefit-card__image--mask {
-    width: clamp(85px, 23vw, 155px);
-    height: clamp(65px, 18vw, 115px);
+    width: clamp(82px, 22vw, 155px);
+    height: clamp(62px, 17vw, 115px);
 }
 
 .benefit-card__title {
-    margin: 0 0 7px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    min-height: 34px;
+
+    margin: 0 0 6px;
 
     color: var(--gold-main);
 
@@ -378,9 +327,9 @@ a {
         Georgia,
         serif;
 
-    font-size: clamp(15px, 4vw, 28px);
+    font-size: clamp(14px, 3.9vw, 28px);
     font-weight: 400;
-    line-height: 0.94;
+    line-height: 0.95;
 
     text-transform: uppercase;
 
@@ -396,14 +345,9 @@ a {
 
     color: var(--text-muted);
 
-    font-family:
-        "Oswald",
-        Arial,
-        sans-serif;
-
-    font-size: clamp(9px, 2.65vw, 17px);
+    font-size: clamp(8px, 2.45vw, 17px);
     font-weight: 400;
-    line-height: 1.24;
+    line-height: 1.22;
 
     text-shadow:
         0 2px 4px rgba(0, 0, 0, 0.95);
@@ -412,16 +356,14 @@ a {
 
 /* =========================================================
    ДОСКА С СОЦИАЛЬНЫМИ СЕТЯМИ
-   Кнопки расположены рядом
+   Исходное соотношение сторон: 954 × 413
    ========================================================= */
 
 .socials {
-    position: relative;
-
     padding:
-        8px
+        2px
         5px
-        24px;
+        clamp(18px, 5vw, 32px);
 
     background:
         linear-gradient(
@@ -434,43 +376,52 @@ a {
 .social-board {
     position: relative;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     width: 100%;
-    height: clamp(340px, 90vw, 420px);
+
+    aspect-ratio: 954 / 413;
+
+    overflow: visible;
 }
 
 .social-board__background {
     position: absolute;
-    inset: 0;
 
     z-index: 1;
+
+    inset: 0;
 
     width: 100%;
     height: 100%;
 
-    object-fit: fill;
+    object-fit: contain;
+    object-position: center;
 
-    filter:
-        drop-shadow(0 15px 13px rgba(0, 0, 0, 0.86));
+    pointer-events: none;
 }
 
 .social-board__content {
-    position: relative;
+    position: absolute;
 
     z-index: 2;
 
-    width: 87%;
+    inset:
+        17%
+        8%
+        15%;
 
-    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     text-align: center;
 }
 
 .social-board__title {
-    margin: 0 0 23px;
+    margin:
+        0
+        0
+        clamp(10px, 2.5vw, 25px);
 
     color: var(--gold-light);
 
@@ -480,7 +431,7 @@ a {
         Georgia,
         serif;
 
-    font-size: clamp(27px, 7.8vw, 40px);
+    font-size: clamp(25px, 7vw, 52px);
     font-weight: 400;
     line-height: 1;
 
@@ -501,41 +452,35 @@ a {
 
     width: 100%;
 
-    gap: 9px;
+    gap: clamp(7px, 2vw, 24px);
 }
 
 .social-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
 
     min-width: 0;
-    min-height: 68px;
 
-    border-radius: 9px;
+    border-radius: 8px;
 
     transition:
-        transform 150ms ease,
-        filter 150ms ease;
+        transform 140ms ease,
+        filter 140ms ease;
 }
 
 .social-button img {
     width: 100%;
     height: auto;
-
-    filter:
-        drop-shadow(0 7px 6px rgba(0, 0, 0, 0.65));
 }
 
 .social-button:active {
-    transform: scale(0.95);
+    transform: scale(0.96);
 
-    filter: brightness(1.1);
+    filter: brightness(1.08);
 }
 
 .social-button:focus-visible {
     outline: 3px solid var(--gold-light);
-    outline-offset: 4px;
+    outline-offset: 3px;
 }
 
 
@@ -548,12 +493,12 @@ a {
     align-items: center;
     justify-content: center;
 
-    gap: 8px;
+    gap: 10px;
 
     padding:
-        25px
+        clamp(18px, 5vw, 32px)
         10px
-        calc(30px + env(safe-area-inset-bottom));
+        calc(clamp(20px, 5vw, 34px) + env(safe-area-inset-bottom));
 
     background:
         radial-gradient(
@@ -582,7 +527,7 @@ a {
         Georgia,
         serif;
 
-    font-size: clamp(24px, 7vw, 37px);
+    font-size: clamp(22px, 6.2vw, 43px);
     font-weight: 400;
     line-height: 1.12;
 
@@ -598,31 +543,7 @@ a {
 
     color: var(--gold-main);
 
-    font-size: 34px;
-
-    filter:
-        drop-shadow(0 5px 5px rgba(0, 0, 0, 0.9));
-}
-
-
-/* =========================================================
-   АНИМАЦИЯ
-   ========================================================= */
-
-.reveal {
-    opacity: 0;
-
-    transform: translateY(16px);
-
-    transition:
-        opacity 500ms ease,
-        transform 500ms ease;
-}
-
-.reveal.is-visible {
-    opacity: 1;
-
-    transform: translateY(0);
+    font-size: 30px;
 }
 
 
@@ -631,14 +552,6 @@ a {
    ========================================================= */
 
 @media (max-width: 350px) {
-
-    .hero {
-        height: 570px;
-    }
-
-    .hero__composition {
-        width: 121%;
-    }
 
     .benefits {
         padding-left: 2px;
@@ -651,60 +564,21 @@ a {
     }
 
     .benefit-card__title {
-        font-size: 13px;
+        min-height: 30px;
+
+        font-size: 12px;
     }
 
     .benefit-card__text {
-        font-size: 8px;
-    }
-
-    .social-board {
-        height: 320px;
+        font-size: 7.5px;
     }
 
     .social-board__title {
-        margin-bottom: 18px;
-
-        font-size: 26px;
+        font-size: 23px;
     }
 
-    .social-board__buttons {
-        gap: 6px;
-    }
-
-}
-
-
-/* =========================================================
-   БОЛЬШИЕ ТЕЛЕФОНЫ
-   ========================================================= */
-
-@media (min-width: 430px) {
-
-    .hero {
-        height: 740px;
-    }
-
-    .hero__composition {
-        width: 112%;
-    }
-
-    .benefits {
-        padding-left: 8px;
-        padding-right: 8px;
-    }
-
-    .benefit-card {
-        padding-left: 7px;
-        padding-right: 7px;
-    }
-
-    .social-board {
-        height: 440px;
-    }
-
-    .social-board__buttons {
-        gap: 13px;
+    .footer__text {
+        font-size: 20px;
     }
 
 }
@@ -716,24 +590,11 @@ a {
 
 @media (min-width: 700px) {
 
-    .hero {
-        height: auto;
-        aspect-ratio: 1024 / 900;
-    }
-
-    .hero__background {
-        object-position: center center;
-    }
-
-    .hero__composition {
-        width: 100%;
-    }
-
     .benefits {
         padding:
-            65px
+            60px
             38px
-            72px;
+            68px;
     }
 
     .benefits__heading {
@@ -748,7 +609,7 @@ a {
     }
 
     .benefit-card__image-box {
-        height: 175px;
+        height: 170px;
 
         margin-bottom: 12px;
     }
@@ -756,11 +617,13 @@ a {
     .benefit-card__image,
     .benefit-card__image--chest,
     .benefit-card__image--mask {
-        width: 165px;
-        height: 165px;
+        width: 160px;
+        height: 160px;
     }
 
     .benefit-card__title {
+        min-height: 0;
+
         font-size: 27px;
     }
 
@@ -771,26 +634,9 @@ a {
 
     .socials {
         padding:
-            18px
+            14px
             38px
-            36px;
-    }
-
-    .social-board {
-        height: auto;
-        aspect-ratio: 954 / 413;
-    }
-
-    .social-board__content {
-        width: 82%;
-    }
-
-    .social-board__buttons {
-        gap: 24px;
-    }
-
-    .social-button {
-        min-height: auto;
+            34px;
     }
 
     .social-button:hover {
@@ -803,29 +649,6 @@ a {
 
     .footer__anchor {
         display: inline-block;
-    }
-
-}
-
-
-/* =========================================================
-   ОТКЛЮЧЕНИЕ АНИМАЦИЙ
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    html {
-        scroll-behavior: auto;
-    }
-
-    .reveal {
-        opacity: 1;
-        transform: none;
-        transition: none;
-    }
-
-    .social-button {
-        transition: none;
     }
 
 }
