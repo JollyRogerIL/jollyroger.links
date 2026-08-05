@@ -1,6 +1,6 @@
 /* =========================================================
    ПЕРЕМЕННЫЕ
-   Основной дизайн рассчитан на смартфоны 360–430 px
+   Главная версия рассчитана на смартфоны 360–430 px
    ========================================================= */
 
 :root {
@@ -8,10 +8,9 @@
 
     --black: #000000;
     --dark-brown: #090401;
-    --medium-brown: #3e1908;
 
-    --gold-light: #f7d69b;
-    --gold-main: #d89a43;
+    --gold-light: #f4d29a;
+    --gold-main: #d99d49;
     --gold-dark: #6d310d;
 
     --text-light: #f3e9dc;
@@ -166,11 +165,11 @@ a {
 
 
 /* =========================================================
-   ОБЩИЕ ЗАГОЛОВКИ
+   ОБЩИЙ ЗАГОЛОВОК
    ========================================================= */
 
 .section-title {
-    margin: 0 0 30px;
+    margin: 0 0 34px;
 
     color: var(--gold-light);
 
@@ -180,14 +179,14 @@ a {
         Georgia,
         serif;
 
-    font-size: clamp(39px, 11.5vw, 52px);
+    font-size: clamp(38px, 11vw, 52px);
     font-weight: 400;
     line-height: 1;
 
     text-align: center;
     text-transform: uppercase;
 
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
 
     text-shadow:
         0 2px 0 #6d310d,
@@ -198,27 +197,27 @@ a {
 
 /* =========================================================
    ПОЧЕМУ МЫ
-   Каждый элемент располагается вертикально
+   Четыре колонки слева направо, как в референсе
    ========================================================= */
 
 .benefits {
     position: relative;
 
     padding:
-        52px
-        18px
-        64px;
+        48px
+        6px
+        54px;
 
     background:
         radial-gradient(
             ellipse at 50% 0%,
-            rgba(104, 46, 14, 0.26),
-            transparent 31%
+            rgba(104, 46, 14, 0.27),
+            transparent 34%
         ),
         linear-gradient(
             to bottom,
             #090401 0%,
-            #020100 25%,
+            #020100 36%,
             #000000 100%
         );
 }
@@ -244,8 +243,12 @@ a {
 }
 
 .benefits__list {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    align-items: start;
 
     width: 100%;
 
@@ -259,12 +262,12 @@ a {
     flex-direction: column;
     align-items: center;
 
-    width: 100%;
+    min-width: 0;
 
     padding:
-        24px
-        10px
-        34px;
+        2px
+        5px
+        18px;
 
     text-align: center;
 }
@@ -274,45 +277,48 @@ a {
 
     position: absolute;
 
-    left: 12%;
-    right: 12%;
-    bottom: 0;
+    top: 7%;
+    right: 0;
 
-    height: 1px;
+    width: 1px;
+    height: 88%;
 
     background:
         linear-gradient(
-            to right,
+            to bottom,
             transparent,
-            rgba(196, 125, 45, 0.35),
+            rgba(194, 124, 44, 0.55),
             transparent
         );
 }
 
 .benefit-card__image {
-    width: clamp(150px, 45vw, 190px);
-    height: clamp(150px, 45vw, 190px);
+    width: clamp(70px, 20vw, 92px);
+    height: clamp(70px, 20vw, 92px);
 
-    margin: 0 auto 16px;
+    margin: 0 auto 12px;
 
     object-fit: contain;
 
     filter:
-        drop-shadow(0 12px 10px rgba(0, 0, 0, 0.86));
+        drop-shadow(0 8px 7px rgba(0, 0, 0, 0.86));
 }
 
 .benefit-card__image--chest {
-    width: clamp(175px, 52vw, 215px);
-    height: clamp(155px, 46vw, 195px);
+    width: clamp(78px, 22vw, 102px);
+    height: clamp(70px, 20vw, 92px);
 }
 
 .benefit-card__image--mask {
-    width: clamp(180px, 54vw, 225px);
-    height: clamp(135px, 41vw, 170px);
+    width: clamp(82px, 23vw, 108px);
+    height: clamp(64px, 18vw, 84px);
+
+    margin-top: 6px;
+    margin-bottom: 12px;
 }
 
 .benefit-card__title {
-    margin: 0 0 10px;
+    margin: 0 0 8px;
 
     color: var(--gold-main);
 
@@ -322,17 +328,18 @@ a {
         Georgia,
         serif;
 
-    font-size: clamp(28px, 8.2vw, 36px);
+    font-size: clamp(13px, 3.8vw, 18px);
     font-weight: 400;
-    line-height: 1.02;
+    line-height: 1.03;
 
     text-transform: uppercase;
 
-    letter-spacing: 0.3px;
+    overflow-wrap: normal;
+    word-break: normal;
 
     text-shadow:
-        0 2px 0 #5f2709,
-        0 4px 6px rgba(0, 0, 0, 0.96);
+        0 1px 0 #5f2709,
+        0 3px 5px rgba(0, 0, 0, 0.96);
 }
 
 .benefit-card__text {
@@ -345,12 +352,16 @@ a {
         Arial,
         sans-serif;
 
-    font-size: clamp(18px, 5vw, 21px);
+    font-size: clamp(10px, 2.8vw, 14px);
     font-weight: 400;
-    line-height: 1.35;
+    line-height: 1.25;
 
     text-shadow:
         0 2px 4px rgba(0, 0, 0, 0.95);
+}
+
+.benefit-card__text br {
+    display: none;
 }
 
 
@@ -364,7 +375,7 @@ a {
 
     padding:
         8px
-        6px
+        5px
         28px;
 
     background:
@@ -378,12 +389,12 @@ a {
 .social-board {
     position: relative;
 
-    width: 100%;
-    height: clamp(350px, 92vw, 420px);
-
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 100%;
+    height: clamp(350px, 92vw, 420px);
 }
 
 .social-board__background {
@@ -406,7 +417,7 @@ a {
 
     z-index: 2;
 
-    width: 86%;
+    width: 87%;
 
     margin-top: 4%;
 
@@ -424,13 +435,13 @@ a {
         Georgia,
         serif;
 
-    font-size: clamp(29px, 8.2vw, 40px);
+    font-size: clamp(28px, 8vw, 40px);
     font-weight: 400;
     line-height: 1.02;
 
     text-transform: uppercase;
 
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
 
     text-shadow:
         0 2px 0 #642b0b,
@@ -573,7 +584,7 @@ a {
 
 
 /* =========================================================
-   УЗКИЕ ТЕЛЕФОНЫ
+   ОЧЕНЬ УЗКИЕ ТЕЛЕФОНЫ
    ========================================================= */
 
 @media (max-width: 350px) {
@@ -587,8 +598,21 @@ a {
     }
 
     .benefits {
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+
+    .benefit-card {
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+
+    .benefit-card__title {
+        font-size: 12px;
+    }
+
+    .benefit-card__text {
+        font-size: 9px;
     }
 
     .social-board {
@@ -631,8 +655,13 @@ a {
     }
 
     .benefits {
-        padding-left: 28px;
-        padding-right: 28px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .benefit-card {
+        padding-left: 8px;
+        padding-right: 8px;
     }
 
     .social-board {
@@ -652,7 +681,6 @@ a {
 
 /* =========================================================
    ПЛАНШЕТЫ И ДЕСКТОП
-   Вторичная адаптация
    ========================================================= */
 
 @media (min-width: 700px) {
@@ -677,40 +705,11 @@ a {
             82px;
     }
 
-    .benefits__list {
-        display: grid;
-
-        grid-template-columns:
-            repeat(4, minmax(0, 1fr));
-
-        align-items: start;
-    }
-
     .benefit-card {
-        min-width: 0;
-
         padding:
             10px
             18px
             26px;
-    }
-
-    .benefit-card:not(:last-child)::after {
-        left: auto;
-        right: 0;
-        top: 10%;
-        bottom: auto;
-
-        width: 1px;
-        height: 78%;
-
-        background:
-            linear-gradient(
-                to bottom,
-                transparent,
-                rgba(196, 125, 45, 0.55),
-                transparent
-            );
     }
 
     .benefit-card__image,
@@ -718,6 +717,9 @@ a {
     .benefit-card__image--mask {
         width: 170px;
         height: 170px;
+
+        margin-top: 0;
+        margin-bottom: 18px;
     }
 
     .benefit-card__title {
@@ -726,6 +728,11 @@ a {
 
     .benefit-card__text {
         font-size: 17px;
+        line-height: 1.35;
+    }
+
+    .benefit-card__text br {
+        display: initial;
     }
 
     .socials {
