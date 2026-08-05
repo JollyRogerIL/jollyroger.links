@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /**
- * Показывает элементы при прокрутке страницы.
+ * Плавно показывает элементы во время прокрутки страницы.
  */
 function setupRevealAnimation() {
     const elements = document.querySelectorAll(".reveal");
@@ -42,8 +42,8 @@ function setupRevealAnimation() {
             });
         },
         {
-            threshold: 0.08,
-            rootMargin: "0px 0px -25px 0px"
+            threshold: 0.07,
+            rootMargin: "0px 0px -20px 0px"
         }
     );
 
