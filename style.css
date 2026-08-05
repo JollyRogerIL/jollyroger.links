@@ -83,7 +83,7 @@ a {
     background-color: #557e98;
 
     background-image:
-        url("assets/background-haifa.jpg?v=11");
+        url("assets/background-haifa.jpg?v=12");
 
     background-repeat: no-repeat;
     background-size: auto 112%;
@@ -394,10 +394,11 @@ a {
     width: 100%;
 
     /*
-     * Предыдущая высота была около 108vw.
-     * Теперь доска ниже примерно на треть.
+     * Исправлена только высота доски.
+     * Нижний край теперь находится почти сразу
+     * после кнопки Instagram.
      */
-    height: clamp(330px, 86vw, 410px);
+    height: clamp(270px, 70vw, 335px);
 
     overflow: visible;
 }
@@ -698,7 +699,7 @@ a {
     }
 
     .social-board {
-        height: 315px;
+        height: 255px;
     }
 
     .social-board__title {
@@ -728,7 +729,7 @@ a {
 @media (min-width: 430px) {
 
     .social-board {
-        height: 425px;
+        height: 350px;
     }
 
     .social-button {
@@ -796,7 +797,7 @@ a {
     }
 
     .social-board {
-        height: 530px;
+        height: 430px;
     }
 
     .social-board__content {
