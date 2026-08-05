@@ -10,12 +10,20 @@
 
     <meta
         name="description"
-        content="Jolly Roger — новости, акции и приключения команды."
+        content="Jolly Roger — новости, акции, заказы и приключения команды."
     >
 
-    <meta name="theme-color" content="#070301">
+    <meta name="theme-color" content="#050200">
 
     <title>Jolly Roger</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Pirata+One&family=Rye&display=swap"
+        rel="stylesheet"
+    >
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -36,7 +44,7 @@
             >
 
             <div
-                class="hero__darkening"
+                class="hero__light"
                 aria-hidden="true"
             ></div>
 
@@ -47,10 +55,15 @@
                 fetchpriority="high"
             >
 
+            <div
+                class="hero__bottom-shadow"
+                aria-hidden="true"
+            ></div>
+
         </section>
 
 
-        <!-- Преимущества -->
+        <!-- Почему мы -->
         <section class="benefits">
 
             <div class="content-container">
@@ -63,104 +76,84 @@
 
                     <article class="benefit-card reveal">
 
-                        <div class="benefit-card__image-box">
-                            <img
-                                class="benefit-card__image"
-                                src="assets/chest.png"
-                                alt="Сундук"
-                                loading="lazy"
-                            >
-                        </div>
+                        <img
+                            class="benefit-card__image benefit-card__image--chest"
+                            src="assets/chest.png"
+                            alt="Сундук"
+                            loading="lazy"
+                        >
 
-                        <div class="benefit-card__content">
+                        <h3 class="benefit-card__title">
+                            Широкий выбор
+                        </h3>
 
-                            <h3 class="benefit-card__title">
-                                Широкий выбор
-                            </h3>
-
-                            <p class="benefit-card__text">
-                                Всё, что нужно для твоих приключений
-                            </p>
-
-                        </div>
+                        <p class="benefit-card__text">
+                            Всё, что нужно<br>
+                            для твоих приключений
+                        </p>
 
                     </article>
 
 
                     <article class="benefit-card reveal">
 
-                        <div class="benefit-card__image-box">
-                            <img
-                                class="benefit-card__image"
-                                src="assets/compass.png"
-                                alt="Компас"
-                                loading="lazy"
-                            >
-                        </div>
+                        <img
+                            class="benefit-card__image"
+                            src="assets/compass.png"
+                            alt="Компас"
+                            loading="lazy"
+                        >
 
-                        <div class="benefit-card__content">
+                        <h3 class="benefit-card__title">
+                            Быстрая доставка
+                        </h3>
 
-                            <h3 class="benefit-card__title">
-                                Быстрая доставка
-                            </h3>
-
-                            <p class="benefit-card__text">
-                                Привезём быстро и незаметно
-                            </p>
-
-                        </div>
+                        <p class="benefit-card__text">
+                            Привезём быстро<br>
+                            и незаметно
+                        </p>
 
                     </article>
 
 
                     <article class="benefit-card reveal">
 
-                        <div class="benefit-card__image-box">
-                            <img
-                                class="benefit-card__image"
-                                src="assets/coin.png"
-                                alt="Пиратская монета"
-                                loading="lazy"
-                            >
-                        </div>
+                        <img
+                            class="benefit-card__image"
+                            src="assets/coin.png"
+                            alt="Пиратская монета"
+                            loading="lazy"
+                        >
 
-                        <div class="benefit-card__content">
+                        <h3 class="benefit-card__title">
+                            Честные цены
+                        </h3>
 
-                            <h3 class="benefit-card__title">
-                                Честные цены
-                            </h3>
-
-                            <p class="benefit-card__text">
-                                Без неожиданных наценок и скрытых условий
-                            </p>
-
-                        </div>
+                        <p class="benefit-card__text">
+                            Без наценок и скрытых условий.<br>
+                            Только честный обмен
+                        </p>
 
                     </article>
 
 
                     <article class="benefit-card reveal">
 
-                        <div class="benefit-card__image-box">
-                            <img
-                                class="benefit-card__image"
-                                src="assets/mask.png"
-                                alt="Пиратская маска"
-                                loading="lazy"
-                            >
-                        </div>
+                        <img
+                            class="benefit-card__image benefit-card__image--mask"
+                            src="assets/mask.png"
+                            alt="Пиратская маска"
+                            loading="lazy"
+                        >
 
-                        <div class="benefit-card__content">
+                        <h3 class="benefit-card__title">
+                            Анонимно
+                        </h3>
 
-                            <h3 class="benefit-card__title">
-                                Анонимно
-                            </h3>
-
-                            <p class="benefit-card__text">
-                                Все обращения остаются конфиденциальными
-                            </p>
-
-                        </div>
+                        <p class="benefit-card__text">
+                            Все заказы<br>
+                            анонимны
+                        </p>
 
                     </article>
 
@@ -196,28 +189,28 @@
 
                             <a
                                 class="social-button"
-                                href="#"
+                                href="https://t.me/+tiKPZxjzs_xhZWZk"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="Открыть Telegram"
+                                aria-label="Открыть Telegram Jolly Roger"
                             >
                                 <img
                                     src="assets/telegram-button.png"
-                                    alt="Telegram"
+                                    alt="Telegram: новости, акции и заказы"
                                     loading="lazy"
                                 >
                             </a>
 
                             <a
                                 class="social-button"
-                                href="#"
+                                href="https://www.instagram.com/jroger.haifa"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="Открыть Instagram"
+                                aria-label="Открыть Instagram Jolly Roger"
                             >
                                 <img
                                     src="assets/instagram-button.png"
-                                    alt="Instagram"
+                                    alt="Instagram: жизнь команды и закулисье"
                                     loading="lazy"
                                 >
                             </a>
@@ -233,13 +226,21 @@
         </section>
 
 
-        <!-- Финальный слоган -->
+        <!-- Нижний слоган -->
         <footer class="footer">
+
+            <span class="footer__anchor" aria-hidden="true">
+                ⚓
+            </span>
 
             <p class="footer__text">
                 Живи ярко.<br>
                 Оставайся легендой!
             </p>
+
+            <span class="footer__anchor" aria-hidden="true">
+                ⚓
+            </span>
 
         </footer>
 
