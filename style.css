@@ -1,13 +1,7 @@
-/* =========================================================
-   ПЕРЕМЕННЫЕ
-   Основная версия: смартфоны шириной 360–430 px
-   ========================================================= */
-
 :root {
     --page-max-width: 1024px;
 
     --black: #000000;
-    --near-black: #030201;
 
     --gold-light: #efc98a;
     --gold-main: #d3903a;
@@ -36,7 +30,6 @@ body {
     min-width: 320px;
 
     background: var(--black);
-
     color: var(--text-light);
 
     font-family:
@@ -73,8 +66,7 @@ a {
 
 
 /* =========================================================
-   ПЕРВЫЙ ЭКРАН
-   Фон Хайфы двигается при прокрутке
+   HERO
    ========================================================= */
 
 .hero {
@@ -91,10 +83,9 @@ a {
     background-color: #557e98;
 
     background-image:
-        url("assets/background-haifa.jpg?v=9");
+        url("assets/background-haifa.jpg?v=11");
 
     background-repeat: no-repeat;
-
     background-size: auto 112%;
 
     background-position:
@@ -102,7 +93,6 @@ a {
         calc(50% + var(--parallax-y));
 
     isolation: isolate;
-
     will-change: background-position;
 }
 
@@ -252,7 +242,7 @@ a {
 
 
 /* =========================================================
-   ЧЕТЫРЕ ПРЕИМУЩЕСТВА В ОДИН РЯД
+   ПРЕИМУЩЕСТВА
    ========================================================= */
 
 .benefits__grid {
@@ -344,10 +334,7 @@ a {
 
     min-height: 29px;
 
-    margin:
-        0
-        0
-        5px;
+    margin: 0 0 5px;
 
     color: var(--gold-main);
 
@@ -357,15 +344,11 @@ a {
         Georgia,
         serif;
 
-    /*
-     * Примерно на 10% меньше предыдущего размера.
-     */
     font-size: clamp(12px, 3.35vw, 23px);
     font-weight: 400;
     line-height: 0.95;
 
     text-transform: uppercase;
-
     text-wrap: balance;
 
     text-shadow:
@@ -388,16 +371,14 @@ a {
 
 
 /* =========================================================
-   ДОСКА С СОЦИАЛЬНЫМИ СЕТЯМИ
-   Вертикальная композиция:
-   заголовок сверху, кнопки друг под другом
+   ДОСКА И СОЦИАЛЬНЫЕ КНОПКИ
    ========================================================= */
 
 .socials {
     padding:
         0
         5px
-        clamp(13px, 3.5vw, 24px);
+        clamp(12px, 3vw, 21px);
 
     background:
         linear-gradient(
@@ -413,10 +394,10 @@ a {
     width: 100%;
 
     /*
-     * Доска стала выше, но не бесконечно вытянутой.
-     * Высота подобрана под заголовок и две кнопки.
+     * Предыдущая высота была около 108vw.
+     * Теперь доска ниже примерно на треть.
      */
-    height: clamp(410px, 108vw, 515px);
+    height: clamp(330px, 86vw, 410px);
 
     overflow: visible;
 }
@@ -431,10 +412,6 @@ a {
     width: 100%;
     height: 100%;
 
-    /*
-     * По просьбе пользователя доска растягивается
-     * по вертикали под новый контент.
-     */
     object-fit: fill;
     object-position: center;
 
@@ -453,9 +430,9 @@ a {
     z-index: 2;
 
     inset:
-        10%
         7%
-        11%;
+        7%
+        8%;
 
     display: flex;
     flex-direction: column;
@@ -471,7 +448,7 @@ a {
     margin:
         0
         0
-        clamp(18px, 5vw, 32px);
+        clamp(13px, 3.5vw, 22px);
 
     color: var(--gold-light);
 
@@ -481,9 +458,6 @@ a {
         Georgia,
         serif;
 
-    /*
-     * Уменьшено примерно на 15%.
-     */
     font-size: clamp(20px, 5.8vw, 42px);
     font-weight: 400;
     line-height: 1;
@@ -505,7 +479,7 @@ a {
 
     width: 100%;
 
-    gap: clamp(14px, 4vw, 25px);
+    gap: clamp(11px, 3vw, 18px);
 }
 
 .social-button {
@@ -513,11 +487,6 @@ a {
 
     display: block;
 
-    /*
-     * Ранее каждая кнопка занимала около половины ряда.
-     * Теперь ширина увеличена примерно на 25%,
-     * но кнопка всё ещё не занимает всю доску.
-     */
     width: 62%;
 
     min-width: 0;
@@ -546,7 +515,9 @@ a {
 }
 
 
-/* Бегущий световой блик */
+/* =========================================================
+   БЕГУЩИЙ БЛИК
+   ========================================================= */
 
 .social-button::after {
     content: "";
@@ -557,7 +528,7 @@ a {
 
     top: -35%;
     bottom: -35%;
-    left: -55%;
+    left: -60%;
 
     width: 34%;
 
@@ -567,39 +538,37 @@ a {
         linear-gradient(
             105deg,
             transparent 0%,
-            rgba(255, 255, 255, 0.05) 25%,
+            rgba(255, 255, 255, 0.02) 20%,
             rgba(255, 244, 205, 0.72) 50%,
-            rgba(255, 255, 255, 0.08) 75%,
+            rgba(255, 255, 255, 0.08) 80%,
             transparent 100%
         );
 
-    transform:
-        translateX(0)
-        skewX(-18deg);
+    transform: skewX(-18deg);
 
     filter: blur(1px);
 
     opacity: 0;
 
     animation:
-        button-shine
-        3.8s
+        social-button-shine
+        4.2s
         ease-in-out
         infinite;
 }
 
 .social-button--instagram::after {
-    animation-delay: 1.9s;
+    animation-delay: 2.1s;
 }
 
-@keyframes button-shine {
+@keyframes social-button-shine {
 
     0% {
-        left: -55%;
+        left: -60%;
         opacity: 0;
     }
 
-    8% {
+    10% {
         opacity: 0;
     }
 
@@ -607,12 +576,12 @@ a {
         opacity: 0.9;
     }
 
-    36% {
+    34% {
         left: 125%;
-        opacity: 0.8;
+        opacity: 0.82;
     }
 
-    44% {
+    42% {
         left: 125%;
         opacity: 0;
     }
@@ -704,7 +673,7 @@ a {
 
 
 /* =========================================================
-   ОЧЕНЬ УЗКИЕ ЭКРАНЫ
+   УЗКИЕ ЭКРАНЫ
    ========================================================= */
 
 @media (max-width: 350px) {
@@ -721,7 +690,6 @@ a {
 
     .benefit-card__title {
         min-height: 26px;
-
         font-size: 10.5px;
     }
 
@@ -730,28 +698,20 @@ a {
     }
 
     .social-board {
-        height: 385px;
-    }
-
-    .social-board__content {
-        inset:
-            10%
-            6%
-            10%;
+        height: 315px;
     }
 
     .social-board__title {
-        margin-bottom: 16px;
-
+        margin-bottom: 11px;
         font-size: 19px;
+    }
+
+    .social-board__buttons {
+        gap: 9px;
     }
 
     .social-button {
         width: 64%;
-    }
-
-    .social-board__buttons {
-        gap: 12px;
     }
 
     .footer__text {
@@ -768,7 +728,7 @@ a {
 @media (min-width: 430px) {
 
     .social-board {
-        height: 530px;
+        height: 425px;
     }
 
     .social-button {
@@ -780,7 +740,6 @@ a {
 
 /* =========================================================
    ПЛАНШЕТЫ И ДЕСКТОП
-   Вторичная адаптация
    ========================================================= */
 
 @media (min-width: 700px) {
@@ -809,7 +768,6 @@ a {
 
     .benefit-card__image-box {
         height: 165px;
-
         margin-bottom: 9px;
     }
 
@@ -822,7 +780,6 @@ a {
 
     .benefit-card__title {
         min-height: 0;
-
         font-size: 23px;
     }
 
@@ -839,14 +796,14 @@ a {
     }
 
     .social-board {
-        height: 650px;
+        height: 530px;
     }
 
     .social-board__content {
         inset:
-            9%
+            7%
             8%
-            10%;
+            8%;
     }
 
     .social-board__title {
@@ -873,7 +830,7 @@ a {
 
 
 /* =========================================================
-   ПОЛЬЗОВАТЕЛЬ ОТКЛЮЧИЛ АНИМАЦИИ
+   ОТКЛЮЧЕНИЕ АНИМАЦИЙ
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -884,7 +841,6 @@ a {
 
     .hero {
         --parallax-y: 0px;
-
         will-change: auto;
     }
 
@@ -894,7 +850,6 @@ a {
 
     .social-button::after {
         display: none;
-
         animation: none;
     }
 
