@@ -13,7 +13,7 @@
         content="Jolly Roger — новости, акции, заказы и приключения команды."
     >
 
-    <meta name="theme-color" content="#050200">
+    <meta name="theme-color" content="#000000">
 
     <title>Jolly Roger</title>
 
@@ -25,7 +25,7 @@
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=7">
 </head>
 
 <body>
@@ -36,29 +36,11 @@
         <section class="hero" aria-label="Jolly Roger">
 
             <img
-                class="hero__background"
-                src="assets/background-haifa.jpg"
-                alt=""
-                aria-hidden="true"
-                fetchpriority="high"
-            >
-
-            <div
-                class="hero__light"
-                aria-hidden="true"
-            ></div>
-
-            <img
                 class="hero__composition"
                 src="assets/hero-pirate.png"
                 alt="Пират Jolly Roger на фоне Хайфы"
                 fetchpriority="high"
             >
-
-            <div
-                class="hero__bottom-shadow"
-                aria-hidden="true"
-            ></div>
 
         </section>
 
@@ -66,130 +48,118 @@
         <!-- Почему мы -->
         <section class="benefits">
 
-            <div class="benefits__inner">
+            <div class="benefits__heading">
 
-                <div class="benefits__heading reveal">
+                <span
+                    class="benefits__ornament benefits__ornament--left"
+                    aria-hidden="true"
+                ></span>
 
-                    <span
-                        class="benefits__ornament benefits__ornament--left"
-                        aria-hidden="true"
-                    ></span>
+                <h2 class="section-title">
+                    Почему мы?
+                </h2>
 
-                    <h2 class="section-title">
-                        Почему мы?
-                    </h2>
+                <span
+                    class="benefits__ornament benefits__ornament--right"
+                    aria-hidden="true"
+                ></span>
 
-                    <span
-                        class="benefits__ornament benefits__ornament--right"
-                        aria-hidden="true"
-                    ></span>
+            </div>
 
-                </div>
+            <div class="benefits__grid">
 
-                <div class="benefits__grid">
+                <article class="benefit-card">
 
-                    <article class="benefit-card reveal">
+                    <div class="benefit-card__image-box">
+                        <img
+                            class="benefit-card__image benefit-card__image--chest"
+                            src="assets/chest.png"
+                            alt="Сундук"
+                            loading="lazy"
+                        >
+                    </div>
 
-                        <div class="benefit-card__image-box">
+                    <h3 class="benefit-card__title">
+                        Широкий выбор
+                    </h3>
 
-                            <img
-                                class="benefit-card__image benefit-card__image--chest"
-                                src="assets/chest.png"
-                                alt="Сундук"
-                                loading="lazy"
-                            >
+                    <p class="benefit-card__text">
+                        Всё, что нужно<br>
+                        для твоих приключений
+                    </p>
 
-                        </div>
-
-                        <h3 class="benefit-card__title">
-                            Широкий выбор
-                        </h3>
-
-                        <p class="benefit-card__text">
-                            Всё, что нужно<br>
-                            для твоих приключений
-                        </p>
-
-                    </article>
+                </article>
 
 
-                    <article class="benefit-card reveal">
+                <article class="benefit-card">
 
-                        <div class="benefit-card__image-box">
+                    <div class="benefit-card__image-box">
+                        <img
+                            class="benefit-card__image"
+                            src="assets/compass.png"
+                            alt="Компас"
+                            loading="lazy"
+                        >
+                    </div>
 
-                            <img
-                                class="benefit-card__image"
-                                src="assets/compass.png"
-                                alt="Компас"
-                                loading="lazy"
-                            >
+                    <h3 class="benefit-card__title">
+                        Быстрая доставка
+                    </h3>
 
-                        </div>
+                    <p class="benefit-card__text">
+                        Привезём быстро<br>
+                        и незаметно.<br>
+                        Как и подобает пиратам
+                    </p>
 
-                        <h3 class="benefit-card__title">
-                            Быстрая доставка
-                        </h3>
-
-                        <p class="benefit-card__text">
-                            Привезём быстро<br>
-                            и незаметно.<br>
-                            Как и подобает пиратам
-                        </p>
-
-                    </article>
+                </article>
 
 
-                    <article class="benefit-card reveal">
+                <article class="benefit-card">
 
-                        <div class="benefit-card__image-box">
+                    <div class="benefit-card__image-box">
+                        <img
+                            class="benefit-card__image"
+                            src="assets/coin.png"
+                            alt="Пиратская монета"
+                            loading="lazy"
+                        >
+                    </div>
 
-                            <img
-                                class="benefit-card__image"
-                                src="assets/coin.png"
-                                alt="Пиратская монета"
-                                loading="lazy"
-                            >
+                    <h3 class="benefit-card__title">
+                        Честные цены
+                    </h3>
 
-                        </div>
+                    <p class="benefit-card__text">
+                        Без наценок и<br>
+                        скрытых условий.<br>
+                        Только честный обмен
+                    </p>
 
-                        <h3 class="benefit-card__title">
-                            Честные цены
-                        </h3>
-
-                        <p class="benefit-card__text">
-                            Без наценок и<br>
-                            скрытых условий.<br>
-                            Только честный обмен
-                        </p>
-
-                    </article>
+                </article>
 
 
-                    <article class="benefit-card reveal">
+                <article class="benefit-card">
 
-                        <div class="benefit-card__image-box">
+                    <div class="benefit-card__image-box">
+                        <img
+                            class="benefit-card__image benefit-card__image--mask"
+                            src="assets/mask.png"
+                            alt="Пиратская маска"
+                            loading="lazy"
+                        >
+                    </div>
 
-                            <img
-                                class="benefit-card__image benefit-card__image--mask"
-                                src="assets/mask.png"
-                                alt="Пиратская маска"
-                                loading="lazy"
-                            >
+                    <h3 class="benefit-card__title">
+                        Анонимно
+                    </h3>
 
-                        </div>
+                    <p class="benefit-card__text">
+                        Все заказы<br>
+                        анонимны
+                    </p>
 
-                        <h3 class="benefit-card__title">
-                            Анонимно
-                        </h3>
-
-                        <p class="benefit-card__text">
-                            Все заказы<br>
-                            анонимны
-                        </p>
-
-                    </article>
-
-                </div>
+                </article>
 
             </div>
 
@@ -199,7 +169,7 @@
         <!-- Социальные сети -->
         <section class="socials">
 
-            <div class="social-board reveal">
+            <div class="social-board">
 
                 <img
                     class="social-board__background"
@@ -226,7 +196,7 @@
                         >
                             <img
                                 src="assets/telegram-button.png"
-                                alt="Telegram"
+                                alt="Telegram: новости, акции и заказы"
                                 loading="lazy"
                             >
                         </a>
@@ -240,7 +210,7 @@
                         >
                             <img
                                 src="assets/instagram-button.png"
-                                alt="Instagram"
+                                alt="Instagram: жизнь команды и закулисье"
                                 loading="lazy"
                             >
                         </a>
@@ -272,8 +242,6 @@
         </footer>
 
     </main>
-
-    <script src="script.js"></script>
 
 </body>
 </html>
