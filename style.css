@@ -83,7 +83,7 @@ a {
     background-color: #557e98;
 
     background-image:
-        url("assets/background-haifa.jpg?v=16");
+        url("assets/background-haifa.jpg?v=17");
 
     background-repeat: no-repeat;
     background-size: auto 112%;
@@ -371,7 +371,6 @@ a {
 
 /* =========================================================
    ДОСКА И СОЦИАЛЬНЫЕ КНОПКИ
-   Картинка сохраняет естественные пропорции
    ========================================================= */
 
 .socials {
@@ -601,6 +600,7 @@ a {
 
 /* =========================================================
    НИЖНИЙ СЛОГАН
+   Такой же шрифт и стиль, как у «ПОЧЕМУ МЫ?»
    ========================================================= */
 
 .footer {
@@ -634,7 +634,7 @@ a {
 .footer__text {
     margin: 0;
 
-    color: #d99942;
+    color: var(--gold-light);
 
     font-family:
         "Rye",
@@ -642,27 +642,31 @@ a {
         Georgia,
         serif;
 
-    font-size: clamp(21px, 5.9vw, 41px);
+    font-size: clamp(26px, 7.5vw, 45px);
     font-weight: 400;
-    line-height: 1.1;
+    line-height: 1;
 
     text-align: center;
 
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
 
     text-shadow:
-        0 1px 0 #f1c277,
-        0 3px 0 #642508,
-        0 6px 9px rgba(0, 0, 0, 0.95),
-        0 0 15px rgba(209, 74, 19, 0.42);
+        0 2px 0 var(--gold-dark),
+        0 4px 0 #311104,
+        0 7px 12px rgba(0, 0, 0, 0.92);
 }
 
 .footer__anchor {
     display: none;
 
-    color: var(--gold-main);
+    color: var(--gold-light);
 
     font-size: 30px;
+
+    text-shadow:
+        0 2px 0 var(--gold-dark),
+        0 4px 0 #311104,
+        0 7px 12px rgba(0, 0, 0, 0.92);
 }
 
 
@@ -705,7 +709,8 @@ a {
     }
 
     .footer__text {
-        font-size: 19px;
+        font-size: 22px;
+        line-height: 1.12;
     }
 
 }
