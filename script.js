@@ -1,17 +1,20 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
-    setupRevealAnimation();
+    setupHeroParallax();
 });
 
 
 /**
- * Плавно показывает элементы во время прокрутки страницы.
+ * Создаёт лёгкое движение фона Хайфы при прокрутке.
+ *
+ * Передняя композиция с пиратом остаётся на месте,
+ * а фон перемещается медленнее, создавая глубину.
  */
-function setupRevealAnimation() {
-    const elements = document.querySelectorAll(".reveal");
+function setupHeroParallax() {
+    const hero = document.getElementById("hero");
 
-    if (elements.length === 0) {
+    if (!hero) {
         return;
     }
 
@@ -19,35 +22,86 @@ function setupRevealAnimation() {
         "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    if (
-        reducedMotionEnabled ||
-        !("IntersectionObserver" in window)
-    ) {
-        elements.forEach((element) => {
-            element.classList.add("is-visible");
-        });
-
+    if (reducedMotionEnabled) {
+        hero.style.setProperty("--parallax-y", "0px");
         return;
     }
 
-    const observer = new IntersectionObserver(
-        (entries, currentObserver) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) {
-                    return;
-                }
+    let animationFrameId = null;
 
-                entry.target.classList.add("is-visible");
-                currentObserver.unobserve(entry.target);
-            });
-        },
+    function updateParallax() {
+        animationFrameId = null;
+
+        const heroRect = hero.getBoundingClientRect();
+        const heroHeight = hero.offsetHeight;
+
+        /*
+         * Анимация считается только пока hero находится
+         * рядом с видимой частью страницы.
+         */
+        if (
+            heroRect.bottom < 0 ||
+            heroRect.top > window.innerHeight
+        ) {
+            return;
+        }
+
+        /*
+         * Максимальное перемещение намеренно небольшое.
+         * На смартфоне слишком сильный параллакс быстро
+         * превращается в дёрганую карусель.
+         */
+        const maximumMovement = Math.min(
+            45,
+            heroHeight * 0.07
+        );
+
+        const scrollProgress = Math.max(
+            0,
+            Math.min(
+                1,
+                -heroRect.top / heroHeight
+            )
+        );
+
+        const movement =
+            scrollProgress * maximumMovement;
+
+        hero.style.setProperty(
+            "--parallax-y",
+            `${movement.toFixed(2)}px`
+        );
+    }
+
+    function requestParallaxUpdate() {
+        if (animationFrameId !== null) {
+            return;
+        }
+
+        animationFrameId =
+            window.requestAnimationFrame(updateParallax);
+    }
+
+    updateParallax();
+
+    window.addEventListener(
+        "scroll",
+        requestParallaxUpdate,
         {
-            threshold: 0.07,
-            rootMargin: "0px 0px -20px 0px"
+            passive: true
         }
     );
 
-    elements.forEach((element) => {
-        observer.observe(element);
-    });
+    window.addEventListener(
+        "resize",
+        requestParallaxUpdate,
+        {
+            passive: true
+        }
+    );
+
+    window.addEventListener(
+        "orientationchange",
+        requestParallaxUpdate
+    );
 }
