@@ -67,6 +67,7 @@ a {
 
 /* =========================================================
    HERO
+   Маскот полностью помещается в секцию и не обрезается сверху
    ========================================================= */
 
 .hero {
@@ -83,7 +84,7 @@ a {
     background-color: #557e98;
 
     background-image:
-        url("assets/background-haifa.jpg?v=18");
+        url("assets/background-haifa.jpg?v=19");
 
     background-repeat: no-repeat;
     background-size: auto 112%;
@@ -106,7 +107,10 @@ a {
 
     width: 106%;
     max-width: none;
-    height: auto;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center bottom;
 
     transform: translateX(-50%);
 
@@ -667,9 +671,6 @@ a {
         Georgia,
         serif;
 
-    /*
-     * Примерно на 20% крупнее заголовков карточек.
-     */
     font-size: clamp(14.4px, 4.02vw, 27.6px);
     font-weight: 400;
     line-height: 1.08;
