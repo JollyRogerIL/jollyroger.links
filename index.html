@@ -25,7 +25,7 @@
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=8">
 </head>
 
 <body>
@@ -33,13 +33,18 @@
     <main class="landing">
 
         <!-- Первый экран -->
-        <section class="hero" aria-label="Jolly Roger">
+        <section
+            class="hero"
+            id="hero"
+            aria-label="Jolly Roger"
+        >
 
             <img
                 class="hero__composition"
                 src="assets/hero-pirate.png"
                 alt="Пират Jolly Roger на фоне Хайфы"
                 fetchpriority="high"
+                decoding="sync"
             >
 
         </section>
@@ -66,17 +71,20 @@
 
             </div>
 
+
             <div class="benefits__grid">
 
                 <article class="benefit-card">
 
                     <div class="benefit-card__image-box">
+
                         <img
                             class="benefit-card__image benefit-card__image--chest"
                             src="assets/chest.png"
                             alt="Сундук"
                             loading="lazy"
                         >
+
                     </div>
 
                     <h3 class="benefit-card__title">
@@ -94,12 +102,14 @@
                 <article class="benefit-card">
 
                     <div class="benefit-card__image-box">
+
                         <img
                             class="benefit-card__image"
                             src="assets/compass.png"
                             alt="Компас"
                             loading="lazy"
                         >
+
                     </div>
 
                     <h3 class="benefit-card__title">
@@ -118,12 +128,14 @@
                 <article class="benefit-card">
 
                     <div class="benefit-card__image-box">
+
                         <img
                             class="benefit-card__image"
                             src="assets/coin.png"
                             alt="Пиратская монета"
                             loading="lazy"
                         >
+
                     </div>
 
                     <h3 class="benefit-card__title">
@@ -142,12 +154,14 @@
                 <article class="benefit-card">
 
                     <div class="benefit-card__image-box">
+
                         <img
                             class="benefit-card__image benefit-card__image--mask"
                             src="assets/mask.png"
                             alt="Пиратская маска"
                             loading="lazy"
                         >
+
                     </div>
 
                     <h3 class="benefit-card__title">
@@ -194,11 +208,13 @@
                             rel="noopener noreferrer"
                             aria-label="Открыть Telegram Jolly Roger"
                         >
+
                             <img
                                 src="assets/telegram-button.png"
                                 alt="Telegram: новости, акции и заказы"
                                 loading="lazy"
                             >
+
                         </a>
 
                         <a
@@ -208,11 +224,13 @@
                             rel="noopener noreferrer"
                             aria-label="Открыть Instagram Jolly Roger"
                         >
+
                             <img
                                 src="assets/instagram-button.png"
                                 alt="Instagram: жизнь команды и закулисье"
                                 loading="lazy"
                             >
+
                         </a>
 
                     </div>
@@ -242,6 +260,8 @@
         </footer>
 
     </main>
+
+    <script src="script.js?v=8"></script>
 
 </body>
 </html>
