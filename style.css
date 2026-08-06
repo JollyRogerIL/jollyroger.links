@@ -27,13 +27,14 @@ html {
 
 body {
     margin: 0;
+    direction: rtl;
     min-width: 320px;
 
     background: var(--black);
     color: var(--text-light);
 
     font-family:
-        "Oswald",
+        "Heebo",
         Arial,
         sans-serif;
 
@@ -187,8 +188,8 @@ a {
     color: var(--gold-light);
 
     font-family:
-        "Rye",
-        "Pirata One",
+        "Frank Ruhl Libre",
+        "Heebo",
         Georgia,
         serif;
 
@@ -342,8 +343,8 @@ a {
     color: var(--gold-main);
 
     font-family:
-        "Pirata One",
-        "Rye",
+        "Frank Ruhl Libre",
+        "Heebo",
         Georgia,
         serif;
 
@@ -450,8 +451,8 @@ a {
     color: var(--gold-light);
 
     font-family:
-        "Rye",
-        "Pirata One",
+        "Frank Ruhl Libre",
+        "Heebo",
         Georgia,
         serif;
 
@@ -666,8 +667,8 @@ a {
     color: var(--gold-main);
 
     font-family:
-        "Pirata One",
-        "Rye",
+        "Frank Ruhl Libre",
+        "Heebo",
         Georgia,
         serif;
 
